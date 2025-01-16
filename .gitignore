@@ -14,5 +14,6 @@ text.txt
 
 build/
 
+cmake-build-debug/
 #如果需要忽略一整个文件夹或者一整个文件，直接写（如build/）
 
