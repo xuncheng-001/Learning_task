@@ -2,11 +2,11 @@
 
 在RoboMaster比赛中，buff（增益）对于战局以及操作手的决策有着重大的影响。除了常见的跨越地形增益外，还有在固定时间刷新的大小能量机关增益，需要在一定时间内激活五片扇叶，并根据击打的环数给予机器人相应的增益。能量机关实物具体如下，由于其按照一定的规律转动，也可以亲切地叫它——风车。
 
-<img src="../../Desktop/Documents/learning_process/images/buff.png" style="zoom: 25%;" />
+<img src="../imgs/buff.png" style="zoom: 25%;" />
 
 为了调试方便，各个队伍都在制作自己的风车。假设现在我们队里需要制作一个风车，需要由我们来编写其运动程序。根据规则手册要求，大小能量的旋转策略如下：
 
-<img src="../../Desktop/Documents/learning_process/images/requirement.jpg" style="zoom: 67%;" />
+<img src="../imgs/requirement.jpg" style="zoom: 67%;" />
 
 本次的作业是利用**前馈**与**PID控制器**控制电机**实现**一种类似于**大/小能量机关**的运动速度**轨迹**。
 
