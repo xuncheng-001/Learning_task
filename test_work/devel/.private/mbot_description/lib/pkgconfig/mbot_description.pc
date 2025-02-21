@@ -1,4 +1,4 @@
-prefix=/home/xuncheng/Learning_task/test_work/devel
+prefix=/home/xuncheng/Learning_task/test_work/devel/.private/mbot_description
 
 Name: mbot_description
 Description: Description of mbot_description

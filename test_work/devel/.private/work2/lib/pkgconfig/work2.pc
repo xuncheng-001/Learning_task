@@ -1,4 +1,4 @@
-prefix=/home/xuncheng/Learning_task/test_work/devel
+prefix=/home/xuncheng/Learning_task/test_work/devel/.private/work2
 
 Name: work2
 Description: Description of work2

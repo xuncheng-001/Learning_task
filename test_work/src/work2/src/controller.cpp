@@ -59,7 +59,7 @@ namespace work2
         {
             if (msg->data==1)
             {
-                F=0.1;
+                F=1.0;
             }
             else
             {
@@ -84,6 +84,7 @@ namespace work2
             {
                 //大能量机关的速度目标函数
                 desired_speed =a*sin(w*t)+b;
+                f_desired_speed= a*sin(w*(t-0.1))+b;
             }
             else if (check==1)
             {
@@ -97,12 +98,12 @@ namespace work2
             //反馈要发的命令
             double B_command = pid_.computeCommand(desired_speed - joint_.getVelocity(), period);
             //前馈要发的命令
-            double F_command = F*(desired_speed- joint_.getVelocity());
+            double F_command = F*(desired_speed- f_desired_speed);
             //所要发的命令汇总
             msg.data =F_command + B_command;
             joint_.setCommand(msg.data);
             //发布期望速度
-            target_command.data =F;
+            target_command.data =desired_speed;
             target.publish(target_command);
         }
 
@@ -113,6 +114,7 @@ namespace work2
         std_msgs::Float64 msg;
         std_msgs::Float64 lmsg;
         double desired_speed;
+        double f_desired_speed;
         double F;
         double t=0;
         double a;
