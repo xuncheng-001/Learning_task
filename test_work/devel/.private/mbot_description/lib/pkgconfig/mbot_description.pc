@@ -1,0 +1,8 @@
+prefix=/home/xuncheng/Learning_task/test_work/devel
+
+Name: mbot_description
+Description: Description of mbot_description
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

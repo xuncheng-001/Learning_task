@@ -1,0 +1,98 @@
+<robot name="mbot">
+    <link name="base_link">
+        <visual>
+            <origin xyz="0 0 1.5" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="3.0" radius="0.2"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="1 0.4 0 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 1.5" rpy="0 0 0"/>
+            <geometry>
+                <cylinder length="3.0" radius="0.2"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 1.5"/>
+            <mass value="10"/>
+            <inertia ixx="7.6" ixy="0.0" ixz="0.0" iyy="7.6" iyz="0.0" izz="0.2"/>
+        </inertial>
+    </link>
+
+    <joint name="link1_joint" type="fixed">
+        <origin xyz="0.3 0 2.75" rpy="0 0 0"/>
+        <parent link="base_link"/>
+        <child link="link1"/>
+        <axis xyz="1 0 0"/>
+    </joint>
+    <link name="link1">
+        <visual>
+            <origin xyz="0 0 0" rpy="1.570795 0 1.570795"/>
+            <geometry>
+                <cylinder length="0.2" radius="0.05"/>
+            </geometry>
+            <material name="yellow">
+                <color rgba="1 0.4 0 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="1.570795 0 1.570795"/>
+            <geometry>
+                <cylinder length="0.2" radius="0.05"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0"/>
+            <mass value="0.1"/>
+            <inertia ixx="0.000125" ixy="0.0" ixz="0.0" iyy="0.0003958" iyz="0.0" izz="0.0003958"/>
+        </inertial>
+    </link>
+
+    <joint name="link2_joint" type="continuous">
+        <origin xyz="0.13 0 0" rpy="0 0 0"/>
+        <parent link="link1"/>
+        <child link="link2"/>
+        <axis xyz="1 0 0"/>
+    </joint>
+    <link name="link2">
+        <visual>
+            <origin xyz="0 0 0" rpy="1.570795 1.570795 0"/>
+            <geometry>
+                <cylinder length="3.5" radius="0.03"/>
+            </geometry>
+            <material name="yellow">
+                <color rgba="1 0.4 0 1"/>
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="1.570795 1.570795 0"/>
+            <geometry>
+                <cylinder length="3.5" radius="0.03"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 0"/>
+            <mass value="0.1"/>
+            <inertia ixx="0.1023" ixy="0.0" ixz="0.0" iyy="0.000045" iyz="0.0" izz="0.1023"/>
+        </inertial>
+    </link>
+
+    <transmission name="link2_trans">
+        <type>transmission_interface/SimpleTransmission</type>
+        <actuator name="link2_motor">
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+        <joint name="link2_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+    </transmission>
+
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+</robot>

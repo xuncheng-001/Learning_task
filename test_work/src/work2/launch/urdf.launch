@@ -1,0 +1,25 @@
+<launch>
+
+
+
+    <param name="robot_description" textfile=" $(find work2)/urdf/windmill.urdf.xacro"/>
+
+    <param name="use_gui" value="true"/>
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find work2)/config/task2.rviz" required="true"/>
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find gazebo_ros)/launch/empty.world"/>
+    </include>
+
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+          args=" -urdf -model mbot -param robot_description"/>
+
+    <rosparam file="$(find work2)/config/controller.yaml" command="load"/>
+    <node name="controller_manager" pkg="controller_manager" type="controller_manager" respawn="false" output="screen"/>
+    <node name="controller_spawner" pkg="controller_manager" type="spawner"
+          args="  joint_state_controller
+                    link2_controller
+                   " respawn="false"/>
+
+</launch>

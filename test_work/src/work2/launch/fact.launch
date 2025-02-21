@@ -1,0 +1,6 @@
+<launch>
+    <rosparam file="$(find work2)/config/can.yaml" command="load"/>
+    <rosparam file="$(find work2)/config/actuator_coefficient.yaml" command="load" ns="rm_hw"/>
+    <node name="rm_hw" pkg="rm_hw" type="rm_hw" respawn="false"
+          clear_params="true"/>
+</launch>

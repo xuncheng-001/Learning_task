@@ -1,0 +1,1 @@
+/home/xuncheng/Learning_task/test_work/devel/.private/work2/lib/pkgconfig/work2.pc

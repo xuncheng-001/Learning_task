@@ -1,0 +1,6 @@
+<library path="lib/libwork2">
+    <class name="work2/FeedforwardController"
+           type="work2::FeedforwardController"
+           base_class_type="controller_interface::ControllerBase">
+    </class>
+</library>
