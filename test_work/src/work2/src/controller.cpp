@@ -46,6 +46,8 @@ namespace work2
             target = nh_.advertise<std_msgs::Float64>("target_command", 10);
             //决定是否要使用前馈
             Feed_yes_or_not = nh_.advertise<std_msgs::Float64>("feed_yes_or_not", 10);
+            //查看目标速度和当前速度的误差
+            error_velocity = nh_.advertise<std_msgs::Float64>("error_velocity", 10);
 
 
         }
@@ -59,7 +61,7 @@ namespace work2
         {
             if (msg->data==1)
             {
-                F=1.023;
+                F=0.05;
             }
             else
             {
@@ -105,6 +107,8 @@ namespace work2
             //发布期望速度
             target_command.data =desired_speed;
             target.publish(target_command);
+            ev.data=desired_speed-joint_.getVelocity();
+            error_velocity.publish(ev);
         }
 
     private:
@@ -124,6 +128,8 @@ namespace work2
         control_toolbox::Pid pid_;
         ros::Publisher target;
         ros::Publisher Feed_yes_or_not;
+        ros::Publisher error_velocity;
+        std_msgs::Float64 ev;
         ros::Subscriber Feed;
         std_msgs::Float64 target_command;
 

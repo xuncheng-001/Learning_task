@@ -2,7 +2,7 @@ link2_controller:
   type: "work2/FeedforwardController"
   joint: link2_joint
   pid:
-      p: 0.2
+      p: 0.3
       i: 0.0
       d: 0.0
       i_clamp: 0.0
