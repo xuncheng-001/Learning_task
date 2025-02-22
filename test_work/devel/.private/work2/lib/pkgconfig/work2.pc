@@ -1,8 +1,0 @@
-prefix=/home/xuncheng/Learning_task/test_work/devel/.private/work2
-
-Name: work2
-Description: Description of work2
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: roscpp roslint controller_interface hardware_interface forward_command_controller pluginlib tf2_ros control_toolbox
