@@ -59,7 +59,7 @@ namespace work2
         {
             if (msg->data==1)
             {
-                F=1.0;
+                F=1.023;
             }
             else
             {
