@@ -14,6 +14,10 @@ ethercat_devices:
     ethercat_address: 1
 ```
 
+
+
+
+
 形如这样，EtherCAT有主站和从站两种设备
 
 其中
@@ -44,3 +48,19 @@ ethercat_devices:
 - configuration_file:后面是设备的配置文件路径。
 - ethercat_bus:是设备连接到的网络接口
 - ethercat_address:是指定设备的EtherCAT的地址，每个从站都要有一个唯一的地址，像上文中的1代表设备是网络上的第一个从站设备
+
+
+
+##### EtherCAT的双全工特性
+
+> EtherCAT作为一种工业以太网总线，充分利用了以太网的全双功特性
+
+
+
+全双工：数据可以同时发送和接受，不存在冲突，提高通信效力
+
+
+
+
+
+EtherCAT使用主从通信
