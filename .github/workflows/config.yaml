@@ -1,0 +1,24 @@
+name: "Automatic_deployment"
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull
+        uses: actions/checkout@v3
+      - name: Connect and deployhu
+        run: appleboy/ssh-action@v0.1.4
+        with:
+          host:113.219.237.121
+          username:root
+          password:${{ secrets.SSH_KEY }}
+          port:61036
+          script:
+            cd /https://github.com/gdut-dynamic-x/docs
+            git pull
