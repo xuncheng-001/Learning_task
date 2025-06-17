@@ -29,7 +29,7 @@
 
 动态目标前馈：
 
-<img src="../imgs/feedforward.jpg" style="zoom: 50%;" />
+<img src="../../Desktop/Documents/learning_process/images/feedforward.jpg" style="zoom: 50%;" />
 
 ### PR规范
 
